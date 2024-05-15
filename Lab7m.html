@@ -100,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Laboratorio 7</h1>
 <section id="manuel-archila---161250" class="level2">
 <h2 class="anchored" data-anchor-id="manuel-archila---161250">Manuel Archila - 161250</h2>
-<div id="242a1ea3" class="cell" data-execution_count="27">
+<div id="242a1ea3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras.preprocessing.image <span class="im">import</span> ImageDataGenerator</span>
@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="e674f50e" class="cell" data-execution_count="12">
+<div id="e674f50e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Path al directorio con las imágenes</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'./malimg_paper_dataset_imgs/'</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -260,7 +260,7 @@ Yuner.A: 800</code></pre>
 <h2 class="anchored" data-anchor-id="primera-parte">Primera Parte</h2>
 <section id="dividiendo-los-datos" class="level3">
 <h3 class="anchored" data-anchor-id="dividiendo-los-datos">Dividiendo los datos</h3>
-<div id="faa1b443" class="cell" data-execution_count="36">
+<div id="faa1b443" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>all_images <span class="op">=</span> []</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>all_labels <span class="op">=</span> []</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -285,16 +285,16 @@ Yuner.A: 800</code></pre>
 (9339, 25)</code></pre>
 </div>
 </div>
-<div id="9d444c08" class="cell" data-execution_count="37">
+<div id="9d444c08" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(all_images, all_labels, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="599d01b4" class="cell" data-execution_count="39">
+<div id="599d01b4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y_train.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>(6537, 25)</code></pre>
 </div>
 </div>
-<div id="58ee219a" class="cell" data-execution_count="40">
+<div id="58ee219a" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Sequential</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Conv2D, MaxPooling2D, Flatten, Dense, Dropout</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.optimizers <span class="im">import</span> Adam</span>
@@ -324,63 +324,31 @@ Yuner.A: 800</code></pre>
 <span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>test_loss, test_acc <span class="op">=</span> model.evaluate(X_test, y_test)</span>
 <span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Test accuracy:'</span>, test_acc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model: "sequential_3"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_9 (Conv2D)           (None, 62, 62, 32)        896       
-                                                                 
- max_pooling2d_8 (MaxPoolin  (None, 31, 31, 32)        0         
- g2D)                                                            
-                                                                 
- conv2d_10 (Conv2D)          (None, 29, 29, 64)        18496     
-                                                                 
- max_pooling2d_9 (MaxPoolin  (None, 14, 14, 64)        0         
- g2D)                                                            
-                                                                 
- conv2d_11 (Conv2D)          (None, 12, 12, 128)       73856     
-                                                                 
- max_pooling2d_10 (MaxPooli  (None, 6, 6, 128)         0         
- ng2D)                                                           
-                                                                 
- flatten_3 (Flatten)         (None, 4608)              0         
-                                                                 
- dense_6 (Dense)             (None, 128)               589952    
-                                                                 
- dropout_2 (Dropout)         (None, 128)               0         
-                                                                 
- dense_7 (Dense)             (None, 25)                3225      
-                                                                 
-=================================================================
-Total params: 686425 (2.62 MB)
-Trainable params: 686425 (2.62 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-Epoch 1/10
-164/164 [==============================] - 9s 49ms/step - loss: 1.7963 - accuracy: 0.4527 - val_loss: 0.8922 - val_accuracy: 0.7171
+<pre><code>Epoch 1/10
+164/164 [==============================] - 8s 46ms/step - loss: 1.8223 - accuracy: 0.4496 - val_loss: 0.9850 - val_accuracy: 0.6651
 Epoch 2/10
-164/164 [==============================] - 8s 46ms/step - loss: 0.9090 - accuracy: 0.6827 - val_loss: 0.5557 - val_accuracy: 0.8341
+164/164 [==============================] - 8s 51ms/step - loss: 0.9844 - accuracy: 0.6653 - val_loss: 0.7363 - val_accuracy: 0.8410
 Epoch 3/10
-164/164 [==============================] - 8s 46ms/step - loss: 0.5828 - accuracy: 0.8227 - val_loss: 0.2910 - val_accuracy: 0.9251
+164/164 [==============================] - 8s 46ms/step - loss: 0.6761 - accuracy: 0.8000 - val_loss: 0.3325 - val_accuracy: 0.9083
 Epoch 4/10
-164/164 [==============================] - 8s 46ms/step - loss: 0.4158 - accuracy: 0.8830 - val_loss: 0.2255 - val_accuracy: 0.9281
+164/164 [==============================] - 7s 45ms/step - loss: 0.4409 - accuracy: 0.8719 - val_loss: 0.2641 - val_accuracy: 0.9190
 Epoch 5/10
-164/164 [==============================] - 9s 58ms/step - loss: 0.3217 - accuracy: 0.9032 - val_loss: 0.2099 - val_accuracy: 0.9427
+164/164 [==============================] - 7s 45ms/step - loss: 0.3782 - accuracy: 0.8898 - val_loss: 0.2194 - val_accuracy: 0.9297
 Epoch 6/10
-164/164 [==============================] - 9s 55ms/step - loss: 0.2909 - accuracy: 0.9051 - val_loss: 0.2432 - val_accuracy: 0.9243
+164/164 [==============================] - 7s 45ms/step - loss: 0.2972 - accuracy: 0.9099 - val_loss: 0.2095 - val_accuracy: 0.9297
 Epoch 7/10
-164/164 [==============================] - 8s 46ms/step - loss: 0.2564 - accuracy: 0.9193 - val_loss: 0.1744 - val_accuracy: 0.9411
+164/164 [==============================] - 7s 45ms/step - loss: 0.2483 - accuracy: 0.9212 - val_loss: 0.1748 - val_accuracy: 0.9434
 Epoch 8/10
-164/164 [==============================] - 8s 48ms/step - loss: 0.2104 - accuracy: 0.9296 - val_loss: 0.1724 - val_accuracy: 0.9480
+164/164 [==============================] - 7s 45ms/step - loss: 0.2275 - accuracy: 0.9260 - val_loss: 0.1956 - val_accuracy: 0.9373
 Epoch 9/10
-164/164 [==============================] - 8s 47ms/step - loss: 0.2075 - accuracy: 0.9290 - val_loss: 0.1629 - val_accuracy: 0.9526
+164/164 [==============================] - 7s 45ms/step - loss: 0.1982 - accuracy: 0.9325 - val_loss: 0.1968 - val_accuracy: 0.9365
 Epoch 10/10
-164/164 [==============================] - 8s 47ms/step - loss: 0.1902 - accuracy: 0.9356 - val_loss: 0.1681 - val_accuracy: 0.9495
-88/88 [==============================] - 1s 13ms/step - loss: 0.1571 - accuracy: 0.9504
-Test accuracy: 0.9503926038742065</code></pre>
+164/164 [==============================] - 7s 45ms/step - loss: 0.1754 - accuracy: 0.9390 - val_loss: 0.1765 - val_accuracy: 0.9450
+88/88 [==============================] - 1s 13ms/step - loss: 0.1597 - accuracy: 0.9522
+Test accuracy: 0.9521769881248474</code></pre>
 </div>
 </div>
-<div id="9a9058c3" class="cell" data-execution_count="41">
+<div id="9a9058c3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>model.save(<span class="st">'modelo_victima.h5'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>c:\Users\aleja\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\training.py:3000: UserWarning: You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
@@ -394,7 +362,7 @@ Test accuracy: 0.9503926038742065</code></pre>
 </section>
 <section id="ataque-de-evasion" class="level2">
 <h2 class="anchored" data-anchor-id="ataque-de-evasion">Ataque de Evasion</h2>
-<div id="92f97bc4" class="cell" data-execution_count="51">
+<div id="92f97bc4" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.attacks.evasion <span class="im">import</span> FastGradientMethod</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.estimators.classification <span class="im">import</span> TensorFlowV2Classifier</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
@@ -414,9 +382,15 @@ Test accuracy: 0.9503926038742065</code></pre>
 <span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy en ejemplos adversarios: </span><span class="sc">{</span>accuracy<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
 <span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy en ejemplos originales: </span><span class="sc">{</span>test_acc<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\aleja\AppData\Local\Programs\Python\Python311\Lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+c:\Users\aleja\AppData\Local\Programs\Python\Python311\Lib\site-packages\art\estimators\certification\__init__.py:29: UserWarning: PyTorch not found. Not importing DeepZ or Interval Bound Propagation functionality
+  warnings.warn("PyTorch not found. Not importing DeepZ or Interval Bound Propagation functionality")</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy en ejemplos adversarios: 10.17%
-Accuracy en ejemplos originales: 95.04%</code></pre>
+<pre><code>Accuracy en ejemplos adversarios: 7.57%
+Accuracy en ejemplos originales: 95.22%</code></pre>
 </div>
 </div>
 <section id="qué-es" class="level5">
@@ -430,62 +404,62 @@ Accuracy en ejemplos originales: 95.04%</code></pre>
 </section>
 <section id="ataque-de-extraccion" class="level2">
 <h2 class="anchored" data-anchor-id="ataque-de-extraccion">Ataque de Extraccion</h2>
-<div id="e5ce79cc" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.attacks.extraction <span class="im">import</span> CopycatCNN</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.estimators.classification <span class="im">import</span> TensorFlowV2Classifier</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> tf.keras.optimizers.Adam()</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>loss_object <span class="op">=</span> tf.keras.losses.CategoricalCrossentropy()</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>target_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model, </span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>student_model <span class="op">=</span> tf.keras.Sequential([</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Conv2D(<span class="dv">32</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>, input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>)),</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Flatten(),</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">25</span>, activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>student_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>student_model,</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>attack <span class="op">=</span> CopycatCNN(</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    classifier<span class="op">=</span>target_classifier,</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    batch_size_query<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    nb_epochs<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    nb_stolen<span class="op">=</span><span class="dv">1000</span></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>stolen_data <span class="op">=</span> attack.extract(x<span class="op">=</span>X_test, y<span class="op">=</span><span class="va">None</span>, thieved_classifier<span class="op">=</span>student_classifier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="d266ed3d" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>student_model.<span class="bu">compile</span>(</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>tf.keras.optimizers.Adam(),</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    metrics<span class="op">=</span>[<span class="st">'accuracy'</span>]</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<div id="e5ce79cc" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.attacks.extraction <span class="im">import</span> CopycatCNN</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.estimators.classification <span class="im">import</span> TensorFlowV2Classifier</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> tf.keras.optimizers.Adam()</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>loss_object <span class="op">=</span> tf.keras.losses.CategoricalCrossentropy()</span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>test_loss_student, test_acc_student <span class="op">=</span> student_model.evaluate(X_test, y_test)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy del modelo estudiante con los datos de prueba originales: </span><span class="sc">{</span>test_acc_student<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy del modelo original: </span><span class="sc">{</span>test_acc<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>target_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>model, </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>student_model <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Conv2D(<span class="dv">32</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>, input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>)),</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Flatten(),</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">25</span>, activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>student_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>student_model,</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>attack <span class="op">=</span> CopycatCNN(</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    classifier<span class="op">=</span>target_classifier,</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    batch_size_query<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    nb_epochs<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    nb_stolen<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>stolen_data <span class="op">=</span> attack.extract(x<span class="op">=</span>X_test, y<span class="op">=</span><span class="va">None</span>, thieved_classifier<span class="op">=</span>student_classifier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d266ed3d" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>student_model.<span class="bu">compile</span>(</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>tf.keras.optimizers.Adam(),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    metrics<span class="op">=</span>[<span class="st">'accuracy'</span>]</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>test_loss_student, test_acc_student <span class="op">=</span> student_model.evaluate(X_test, y_test)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy del modelo estudiante con los datos de prueba originales: </span><span class="sc">{</span>test_acc_student<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy del modelo original: </span><span class="sc">{</span>test_acc<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>88/88 [==============================] - 1s 11ms/step - loss: 1.1906 - accuracy: 0.9176
-Accuracy del modelo estudiante con los datos de prueba originales: 91.76%
-Accuracy del modelo original: 95.04%</code></pre>
+<pre><code>88/88 [==============================] - 1s 8ms/step - loss: 1.4046 - accuracy: 0.9236
+Accuracy del modelo estudiante con los datos de prueba originales: 92.36%
+Accuracy del modelo original: 95.22%</code></pre>
 </div>
 </div>
 <section id="qué-es-1" class="level5">
@@ -496,6 +470,141 @@ Accuracy del modelo original: 95.04%</code></pre>
 <h5 class="anchored" data-anchor-id="cómo-funciona-1">¿Cómo funciona?</h5>
 <p>Interrogación del Modelo: El atacante envía múltiples consultas al modelo objetivo y recopila las predicciones. Reconstrucción del Modelo: Utilizando los datos de entrada y las predicciones obtenidas, el atacante entrena un nuevo modelo (el modelo “estudiante”) que intenta replicar las decisiones del modelo original. Validación: Finalmente, el atacante evalúa cuán cercanamente el modelo estudiante imita al modelo original, comparando sus respuestas en un conjunto de datos de prueba. Este ataque explota el hecho de que muchos modelos de aprendizaje automático son fundamentalmente “cajas negras” que pueden ser aproximadas si se puede observar suficientemente su comportamiento en un número suficiente de casos.</p>
 </section>
+</section>
+</section>
+<section id="laboratorio-8" class="level1">
+<h1>Laboratorio 8</h1>
+<section id="defensa-contra-ataque-de-evasión" class="level3">
+<h3 class="anchored" data-anchor-id="defensa-contra-ataque-de-evasión">Defensa contra ataque de evasión</h3>
+<div id="10727269" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.estimators.classification <span class="im">import</span> TensorFlowV2Classifier</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.attacks.evasion <span class="im">import</span> FastGradientMethod</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Sequential</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Dense, Conv2D, MaxPooling2D, Flatten, Dropout</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Sequential([</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">32</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>, input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>)),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">64</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">128</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    Flatten(),</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">25</span>, activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Compilar el modelo</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span>Adam(), loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>, metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adversarial_training(model, x_train, y_train, epsilons, ratio<span class="op">=</span><span class="fl">0.5</span>):</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> eps <span class="kw">in</span> epsilons:</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        attack <span class="op">=</span> FastGradientMethod(estimator<span class="op">=</span>classifier, eps<span class="op">=</span>eps)</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>        x_train_adv <span class="op">=</span> attack.generate(x<span class="op">=</span>x_train)</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        x_combined <span class="op">=</span> np.vstack((x_train, x_train_adv[:<span class="bu">int</span>(<span class="bu">len</span>(x_train) <span class="op">*</span> ratio)]))</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>        y_combined <span class="op">=</span> np.vstack((y_train, y_train[:<span class="bu">int</span>(<span class="bu">len</span>(y_train) <span class="op">*</span> ratio)]))</span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>        indices <span class="op">=</span> np.random.permutation(<span class="bu">len</span>(x_combined))</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>        x_combined, y_combined <span class="op">=</span> x_combined[indices], y_combined[indices]</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>        model.fit(x_combined, y_combined, epochs<span class="op">=</span><span class="dv">1</span>, batch_size<span class="op">=</span><span class="dv">32</span>)  <span class="co"># Ejecutar cada epoch con diferente eps</span></span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Variar eps en un rango, por ejemplo, [0.05, 0.1, 0.2]</span></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>adversarial_training(model, X_train, y_train, epsilons<span class="op">=</span>[<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>])</span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>x_test_adv <span class="op">=</span> attack.generate(x<span class="op">=</span>X_test)</span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>test_loss_adv, test_acc_adv <span class="op">=</span> model.evaluate(x_test_adv, y_test)</span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Accuracy en ejemplos adversarios: </span><span class="sc">{</span>test_acc_adv<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>307/307 [==============================] - 14s 45ms/step - loss: 1.5299 - accuracy: 0.5116
+307/307 [==============================] - 13s 42ms/step - loss: 0.8032 - accuracy: 0.7261
+307/307 [==============================] - 13s 41ms/step - loss: 0.5411 - accuracy: 0.8468
+88/88 [==============================] - 1s 12ms/step - loss: 0.2888 - accuracy: 0.9065
+Accuracy en ejemplos adversarios: 90.65%</code></pre>
+</div>
+</div>
+<p>La defensa contra ataques adversarios se implementa mediante la técnica de entrenamiento adversario. Este enfoque consiste en generar ejemplos adversarios utilizando el método Fast Gradient Sign Method (FGSM), un tipo de ataque de evasión, y luego mezclar estos ejemplos con los datos de entrenamiento normales. La intensidad de las perturbaciones generadas se controla a través del parámetro eps, que se varía durante el entrenamiento para exponer al modelo a un rango de perturbaciones. Esta estrategia tiene como objetivo hacer que el modelo sea más robusto al aprender no solo de datos limpios sino también de datos perturbados, preparándolo mejor para reconocer y manejar correctamente ejemplos adversarios durante su uso práctico. Al entrenar de esta manera, el modelo desarrolla una mejor capacidad para generalizar desde ejemplos perturbados, aumentando así su resistencia a ataques similares en situaciones reales.</p>
+</section>
+<section id="defensa-contra-ataque-de-extracción" class="level3">
+<h3 class="anchored" data-anchor-id="defensa-contra-ataque-de-extracción">Defensa contra ataque de extracción</h3>
+<div id="1ac1b882" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Sequential</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Conv2D, MaxPooling2D, Flatten, Dense, Dropout, Lambda</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.estimators.classification <span class="im">import</span> TensorFlowV2Classifier</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> art.attacks.extraction <span class="im">import</span> CopycatCNN</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_noise_to_output(output):</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    noise <span class="op">=</span> tf.random.normal(shape<span class="op">=</span>tf.shape(output), mean<span class="op">=</span><span class="fl">0.0</span>, stddev<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output <span class="op">+</span> noise</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Define la arquitectura del modelo con la capa de ruido</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>target_model <span class="op">=</span> Sequential([</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">32</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>, input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>)),</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">64</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">128</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    Flatten(),</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    Dropout(<span class="fl">0.5</span>),</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">25</span>, activation<span class="op">=</span><span class="st">'softmax'</span>),</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>    Lambda(add_noise_to_output)  <span class="co"># Añade ruido directamente en el modelo</span></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el clasificador con el modelo protegido</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> tf.keras.optimizers.Adam()</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>loss_object <span class="op">=</span> tf.keras.losses.CategoricalCrossentropy()</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>target_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>target_model,</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Define el modelo del estudiante para el ataque</span></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>student_model <span class="op">=</span> Sequential([</span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a>    Conv2D(<span class="dv">32</span>, (<span class="dv">3</span>, <span class="dv">3</span>), activation<span class="op">=</span><span class="st">'relu'</span>, input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>)),</span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a>    MaxPooling2D(<span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a>    Flatten(),</span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">128</span>, activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a>    Dense(<span class="dv">25</span>, activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a>student_classifier <span class="op">=</span> TensorFlowV2Classifier(</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span>student_model,</span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a>    nb_classes<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a>    input_shape<span class="op">=</span>(<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>),</span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a>    loss_object<span class="op">=</span>loss_object,</span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>optimizer</span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurar y realizar el ataque de extracción</span></span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a>attack <span class="op">=</span> CopycatCNN(</span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a>    classifier<span class="op">=</span>target_classifier,</span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>    batch_size_query<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>    nb_epochs<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a>    nb_stolen<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a>stolen_data <span class="op">=</span> attack.extract(x<span class="op">=</span>X_test, y<span class="op">=</span><span class="va">None</span>, thieved_classifier<span class="op">=</span>student_classifier)</span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> student_classifier.predict(X_test)</span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a>predicted_classes <span class="op">=</span> np.argmax(predictions, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a>true_classes <span class="op">=</span> np.argmax(y_test, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(true_classes, predicted_classes)</span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy of the student model: </span><span class="sc">{:.2f}</span><span class="st">%"</span>.<span class="bu">format</span>(accuracy <span class="op">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy of the student model: 4.25%</code></pre>
+</div>
+</div>
+<p>Para proteger el modelo del ataque de extracción CopycatCNN, se implementó una estrategia de defensa basada en la adición de ruido a las predicciones del modelo. Esto se logró mediante la incorporación de una capa Lambda en la arquitectura del modelo de red neuronal, la cual aplica una perturbación aleatoria normal (gaussiana) a la salida del modelo. El objetivo de esta capa de ruido es modificar ligeramente las respuestas del modelo para cada consulta, haciendo que sea mucho más difícil para un atacante extraer con precisión el comportamiento del modelo original. El ruido tiene una media de cero y una desviación estándar pequeña, lo cual asegura que las modificaciones sean sutiles y no afecten significativamente la precisión del modelo en operaciones legítimas.</p>
 </section>
 </section>
 
